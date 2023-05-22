@@ -2,6 +2,7 @@ package br.com.paulo.teixeira.unimed.controller;
 
 import br.com.paulo.teixeira.unimed.config.UserAuthenticationProvider;
 import br.com.paulo.teixeira.unimed.dto.UserDto;
+import br.com.paulo.teixeira.unimed.dto.UsuarioDto;
 import br.com.paulo.teixeira.unimed.model.Usuario;
 import br.com.paulo.teixeira.unimed.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class UsuarioController {
 
     @GetMapping("/{idUsuario}")
     @ResponseStatus(HttpStatus.OK)
-    public Usuario getUsuarios (@PathVariable("idUsuario") long idUsuario) {
+    public UsuarioDto getUsuarios (@PathVariable("idUsuario") long idUsuario) {
         return usuarioService.getUsuario(idUsuario);
     }
 
@@ -44,4 +45,15 @@ public class UsuarioController {
         SecurityContextHolder.clearContext();
     }
 
+    @PutMapping("/update/{idUsuario}")
+    @ResponseStatus(HttpStatus.OK)
+    public void update(@PathVariable("idUsuario") Long idUsuario, @RequestBody UserDto usuario) {
+        usuarioService.update(idUsuario, usuario);
+    }
+
+    @DeleteMapping("/delete/{idUsuario}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable("idUsuario") Long idUsuario) {
+        usuarioService.delete(idUsuario);
+    }
 }

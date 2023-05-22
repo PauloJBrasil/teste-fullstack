@@ -2,6 +2,7 @@ package br.com.paulo.teixeira.unimed.service;
 
 import br.com.paulo.teixeira.unimed.dto.CredentialsDto;
 import br.com.paulo.teixeira.unimed.dto.UserDto;
+import br.com.paulo.teixeira.unimed.dto.UsuarioDto;
 import br.com.paulo.teixeira.unimed.mapper.UsuarioMapper;
 import br.com.paulo.teixeira.unimed.model.Usuario;
 
@@ -17,7 +18,7 @@ public class UsuarioService {
     private final UsuarioMapper usuarioMapper;
     private final PasswordEncoder passwordEncoder;
 
-    public Usuario getUsuario(long idUsuario) {
+    public UsuarioDto getUsuario(long idUsuario) {
         return usuarioMapper.findById(idUsuario);
     }
 
@@ -58,5 +59,14 @@ public class UsuarioService {
     public void signUp(UserDto usuario) {
         usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         usuarioMapper.save(usuario);
+    }
+
+    public void update(Long idUsuario, UserDto usuario) {
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+        usuarioMapper.update(idUsuario, usuario);
+    }
+
+    public void delete(Long idUsuario) {
+        usuarioMapper.deleteById(idUsuario);
     }
 }

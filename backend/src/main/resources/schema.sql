@@ -18,5 +18,5 @@ CREATE TABLE beneficiario (
     email VARCHAR(255) NOT NULL,
     idade INT NOT NULL,
     plano_id INT,
-    FOREIGN KEY (plano_id) REFERENCES plano (id)
+    FOREIGN KEY (plano_id) REFERENCES plano (id) ON DELETE CASCADE
 );

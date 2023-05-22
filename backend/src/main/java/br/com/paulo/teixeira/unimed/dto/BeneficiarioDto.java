@@ -1,29 +1,21 @@
-package br.com.paulo.teixeira.unimed.model;
+package br.com.paulo.teixeira.unimed.dto;
 
-
+import br.com.paulo.teixeira.unimed.model.Plano;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Beneficiario {
+public class BeneficiarioDto {
 
     private Long id;
-
     private String nome;
-
     private String cpf;
-
     private String email;
-
     private int idade;
-
-    private Long plano_id;
-
     private Plano plano;
-
 }

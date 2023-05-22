@@ -16,4 +16,20 @@ public class PlanoService {
     public List<Plano> getAllPlano() {
         return planoMapper.findAll();
     }
+
+    public Plano getPlano(Long idPlano) {
+        return planoMapper.findById(idPlano);
+    }
+
+    public void criar(Plano plano) {
+        planoMapper.insert(plano);
+    }
+
+    public void update(Long idPlano, Plano plano) {
+        planoMapper.update(idPlano, plano);
+    }
+
+    public void delete(Long idPlano) {
+        planoMapper.delete(idPlano);
+    }
 }
