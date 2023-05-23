@@ -1,0 +1,6 @@
+<p-carousel [value]="images" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions" class="full-width-carousel">
+  <ng-template let-image pTemplate="item">
+      <img [src]="image" (click)="redirect()" alt="Carousel Image" class="carousel-image">
+  </ng-template>
+</p-carousel>
+

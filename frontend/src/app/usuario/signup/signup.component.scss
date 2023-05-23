@@ -1,0 +1,44 @@
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #CACACA;
+
+  .content {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .title {
+      h1 {
+        text-align: center;
+        font-size: 2rem;
+        color: #22C55E;
+        margin: 0;
+      }
+    }
+
+    .signup {
+      a {
+        text-decoration: none;
+        color: #22C55E;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+}

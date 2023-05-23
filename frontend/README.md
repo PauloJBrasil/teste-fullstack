@@ -1,27 +1,176 @@
-# Unimed
+# Unimed - Iniciando um Projeto Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+Este projeto é desenvolvido com Angular versão 14.2.0. Siga as etapas abaixo para configurar e executar o projeto em sua máquina local.
 
-## Development server
+## Pré-requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Antes de começar, verifique se você possui os seguintes itens instalados:
 
-## Code scaffolding
+- [Node.js](https://nodejs.org) (versão 14.17.0 ou posterior)
+- [npm](https://www.npmjs.com/) (versão 7.0.0 ou posterior)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Primeiros Passos
 
-## Build
+1. Clone este repositório para sua máquina local:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```bash
+   git clone https://github.com/PauloJBrasil/teste-fullstack.git
+   ```
 
-## Running unit tests
+2. Instale as dependências do projeto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```bash
+   npm install
+   ```
 
-## Running end-to-end tests
+3. Inicie o servidor de desenvolvimento:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   npm start
+   ```
 
-## Further help
+4. Acesse o front-end em [http://localhost:4200](http://localhost:4200).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+teste-fullstack
+├─ backend
+│  ├─ .mvn
+│  │  └─ wrapper
+│  │     ├─ maven-wrapper.jar
+│  │     └─ maven-wrapper.properties
+│  ├─ backend.iml
+│  ├─ mvnw
+│  ├─ mvnw.cmd
+│  ├─ pom.xml
+│  ├─ README.md
+│  ├─ src
+│  │  ├─ main
+│  │  │  ├─ java
+│  │  │  │  └─ br
+│  │  │  │     └─ com
+│  │  │  │        └─ paulo
+│  │  │  │           └─ teixeira
+│  │  │  │              └─ unimed
+│  │  │  │                 ├─ config
+│  │  │  │                 │  ├─ JWTAuthFilter.java
+│  │  │  │                 │  ├─ PasswordConfig.java
+│  │  │  │                 │  ├─ SecurityConfig.java
+│  │  │  │                 │  ├─ UserAuthenticationEntryPoint.java
+│  │  │  │                 │  ├─ UserAuthenticationProvider.java
+│  │  │  │                 │  ├─ UsernamePasswordAuthFilter.java
+│  │  │  │                 │  └─ WebConfig.java
+│  │  │  │                 ├─ controller
+│  │  │  │                 │  ├─ BeneficiarioController.java
+│  │  │  │                 │  ├─ PlanoController.java
+│  │  │  │                 │  └─ UsuarioController.java
+│  │  │  │                 ├─ dto
+│  │  │  │                 │  ├─ BeneficiarioDto.java
+│  │  │  │                 │  ├─ CredentialsDto.java
+│  │  │  │                 │  ├─ ErrorDto.java
+│  │  │  │                 │  ├─ UserDto.java
+│  │  │  │                 │  └─ UsuarioDto.java
+│  │  │  │                 ├─ mapper
+│  │  │  │                 │  ├─ BeneficiarioMapper.java
+│  │  │  │                 │  ├─ PlanoMapper.java
+│  │  │  │                 │  └─ UsuarioMapper.java
+│  │  │  │                 ├─ model
+│  │  │  │                 │  ├─ Beneficiario.java
+│  │  │  │                 │  ├─ Plano.java
+│  │  │  │                 │  └─ Usuario.java
+│  │  │  │                 ├─ service
+│  │  │  │                 │  ├─ BeneficiarioService.java
+│  │  │  │                 │  ├─ PlanoService.java
+│  │  │  │                 │  └─ UsuarioService.java
+│  │  │  │                 ├─ ServletInitializer.java
+│  │  │  │                 └─ UnimedApplication.java
+│  │  │  └─ resources
+│  │  │     ├─ application.properties
+│  │  │     ├─ data.sql
+│  │  │     └─ schema.sql
+│  │  └─ test
+│  │     └─ java
+│  │        └─ br
+│  │           └─ com
+│  │              └─ paulo
+│  │                 └─ teixeira
+│  │                    └─ unimed
+│  │                       └─ UnimedApplicationTests.java
+├─ diagrama.png
+├─ frontend
+│  ├─ .browserslistrc
+│  ├─ .editorconfig
+│  ├─ angular.json
+│  ├─ karma.conf.js
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ README.md
+│  ├─ src
+│  │  ├─ app
+│  │  │  ├─ app-routing.module.ts
+│  │  │  ├─ app.component.html
+│  │  │  ├─ app.component.scss
+│  │  │  ├─ app.component.spec.ts
+│  │  │  ├─ app.component.ts
+│  │  │  ├─ app.module.ts
+│  │  │  ├─ beneficiario
+│  │  │  │  ├─ beneficiario.component.html
+│  │  │  │  ├─ beneficiario.component.scss
+│  │  │  │  ├─ beneficiario.component.spec.ts
+│  │  │  │  └─ beneficiario.component.ts
+│  │  │  ├─ core
+│  │  │  │  ├─ core.module.ts
+│  │  │  │  └─ models
+│  │  │  │     ├─ beneficiario.model.ts
+│  │  │  │     ├─ plano.model.ts
+│  │  │  │     └─ usuario.model.ts
+│  │  │  ├─ home
+│  │  │  │  ├─ home.component.html
+│  │  │  │  ├─ home.component.scss
+│  │  │  │  ├─ home.component.spec.ts
+│  │  │  │  └─ home.component.ts
+│  │  │  ├─ plano
+│  │  │  │  ├─ listar.component.html
+│  │  │  │  ├─ listar.component.scss
+│  │  │  │  ├─ listar.component.spec.ts
+│  │  │  │  └─ listar.component.ts
+│  │  │  └─ usuario
+│  │  │     ├─ login
+│  │  │     │  ├─ login.component.html
+│  │  │     │  ├─ login.component.scss
+│  │  │     │  ├─ login.component.spec.ts
+│  │  │     │  └─ login.component.ts
+│  │  │     ├─ signup
+│  │  │     │  ├─ signup.component.html
+│  │  │     │  ├─ signup.component.scss
+│  │  │     │  ├─ signup.component.spec.ts
+│  │  │     │  └─ signup.component.ts
+│  │  │     ├─ usuario-routing.module.ts
+│  │  │     └─ usuario.module.ts
+│  │  ├─ assets
+│  │  │  ├─ banner_imposto de renda.png
+│  │  │  ├─ banner_ona.png
+│  │  │  ├─ Dia das mães_Banner site.png
+│  │  │  ├─ regulariza_unimed.png
+│  │  │  └─ UNIMED_URGENTE.png
+│  │  ├─ environments
+│  │  │  ├─ environment.prod.ts
+│  │  │  └─ environment.ts
+│  │  ├─ favicon.ico
+│  │  ├─ index.html
+│  │  ├─ main.ts
+│  │  ├─ polyfills.ts
+│  │  ├─ services
+│  │  │  ├─ api-services.service.spec.ts
+│  │  │  ├─ api-services.service.ts
+│  │  │  ├─ auth.guard.ts
+│  │  │  ├─ auth.service.spec.ts
+│  │  │  └─ auth.service.ts
+│  │  ├─ styles.scss
+│  │  └─ test.ts
+│  ├─ tsconfig.app.json
+│  ├─ tsconfig.json
+│  └─ tsconfig.spec.json
+├─ README.md
+└─ Teste full-stack collection.json
+
+```

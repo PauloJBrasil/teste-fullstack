@@ -1,0 +1,14 @@
+.full-width-carousel {
+  width: 100%;
+  & ::ng-deep .p-carousel-prev {
+    display: none !important;
+  }
+  & ::ng-deep .p-carousel-next {
+    display: none !important;
+  }
+}
+.carousel-image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}

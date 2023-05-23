@@ -1,0 +1,64 @@
+<button pButton type="button" class="p-button-success" (click)="displayCriar = true; form.reset()" [style]="{'margin': '20px'}">Criar plano</button>
+<p-table [value]="planos">
+  <ng-template pTemplate="header" >
+      <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Valor</th>
+          <th>Ações</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-plano >
+      <tr>
+          <td>{{plano.id}}</td>
+          <td>{{plano.nome}}</td>
+          <td>{{plano.valor}}</td>
+          <td>
+            <button pButton type="button" class="p-button-default" icon="pi pi-eye" [style]="{'margin': '0 5px'}" (click)="visualizarPlano(plano)"></button>
+            <button pButton type="button" class="p-button-secondary" icon="pi pi-pencil" [style]="{'margin': '0 5px'}" (click)="editarPlano(plano)"></button>
+            <button pButton type="button" class="p-button-danger" icon="pi pi-trash" [style]="{'margin': '0 5px'}" (click)="excluirPlano(plano.id)"></button>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="displayVisualizar" [modal]="true">
+  <ng-template pTemplate="header">
+    <h1 class="title">
+      {{plano.nome}}
+    </h1>
+  </ng-template>
+  <p class="valor">
+    Valor do plano: R$ {{plano.valor}}
+  </p>
+</p-dialog>
+
+<p-dialog [(visible)]="displayCriar" [modal]="true">
+  <ng-template pTemplate="header">
+    <h1 class="title">
+      Criar plano
+    </h1>
+  </ng-template>
+  <form (ngSubmit)="criarPlano()" [formGroup]="form" autocomplete="off">
+    <div class="container-criar">
+      <input type="text" pInputText placeholder="Nome" formControlName="nome" [style]="{'width': '100%', 'margin': '10px 0'}">
+      <p-inputNumber formControlName="valor" placeholder="valor" mode="decimal" locale="pt-BR" prefix="R$" [maxFractionDigits]="2"></p-inputNumber>
+      <button pButton pRipple type="submit" label="Criar plano" class="p-button-success"></button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog [(visible)]="displayEditar" [modal]="true">
+  <ng-template pTemplate="header">
+    <h1 class="title">
+      Editar plano
+    </h1>
+  </ng-template>
+  <form (ngSubmit)="submitEditarPlano()" [formGroup]="form" autocomplete="off">
+    <div class="container-criar">
+      <input type="text" pInputText placeholder="Nome" formControlName="nome" [style]="{'width': '100%', 'margin': '10px 0'}">
+      <p-inputNumber formControlName="valor" placeholder="valor" mode="decimal" locale="pt-BR" prefix="R$"   [maxFractionDigits]="2"></p-inputNumber>
+      <button pButton pRipple type="submit" label="Editar plano" class="p-button-success"></button>
+    </div>
+  </form>
+</p-dialog>

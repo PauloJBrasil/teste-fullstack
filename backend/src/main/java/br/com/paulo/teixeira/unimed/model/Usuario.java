@@ -13,10 +13,8 @@ public class Usuario {
 
     private long id;
 
-    private String login;
-
     private String nome;
-
+    private String login;
     private String senha;
 
 }

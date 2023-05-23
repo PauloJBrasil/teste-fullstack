@@ -4,198 +4,68 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuarioModule } from './usuario/usuario.module';
-import { LoginComponent } from './login/login.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { AccordionModule } from 'primeng/accordion';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { AvatarModule } from 'primeng/avatar';
-import { BadgeModule } from 'primeng/badge';
-import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { ButtonModule } from 'primeng/button';
-import { CalendarModule } from 'primeng/calendar';
-import { CarouselModule } from 'primeng/carousel';
-import { CascadeSelectModule } from 'primeng/cascadeselect';
-import { ChartModule } from 'primeng/chart';
-import { CheckboxModule } from 'primeng/checkbox';
-import { ChipModule } from 'primeng/chip';
-import { ChipsModule } from 'primeng/chips';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ColorPickerModule } from 'primeng/colorpicker';
-import { ContextMenuModule } from 'primeng/contextmenu';
-import { DataViewModule } from 'primeng/dataview';
-import { VirtualScrollerModule } from 'primeng/virtualscroller';
-import { DialogModule } from 'primeng/dialog';
-import { DividerModule } from 'primeng/divider';
-import { DockModule } from 'primeng/dock';
-import { DragDropModule } from 'primeng/dragdrop';
-import { DropdownModule } from 'primeng/dropdown';
-import { DynamicDialogModule } from 'primeng/dynamicdialog';
-import { EditorModule } from 'primeng/editor';
-import { FieldsetModule } from 'primeng/fieldset';
-import { FileUploadModule } from 'primeng/fileupload';
-import { GalleriaModule } from 'primeng/galleria';
-import { InplaceModule } from 'primeng/inplace';
-import { InputMaskModule } from 'primeng/inputmask';
-import { InputSwitchModule } from 'primeng/inputswitch';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputNumberModule } from 'primeng/inputnumber';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { ImageModule } from 'primeng/image';
-import { KnobModule } from 'primeng/knob';
-import { ListboxModule } from 'primeng/listbox';
-import { MegaMenuModule } from 'primeng/megamenu';
-import { MenuModule } from 'primeng/menu';
-import { MenubarModule } from 'primeng/menubar';
-import { MessageModule } from 'primeng/message';
-import { MessagesModule } from 'primeng/messages';
-import { MultiSelectModule } from 'primeng/multiselect';
-import { OrderListModule } from 'primeng/orderlist';
-import { OrganizationChartModule } from 'primeng/organizationchart';
-import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { PaginatorModule } from 'primeng/paginator';
-import { PanelModule } from 'primeng/panel';
-import { PanelMenuModule } from 'primeng/panelmenu';
-import { PasswordModule } from 'primeng/password';
-import { PickListModule } from 'primeng/picklist';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { RadioButtonModule } from 'primeng/radiobutton';
-import { RatingModule } from 'primeng/rating';
-import { ScrollerModule } from 'primeng/scroller';
-import { ScrollPanelModule } from 'primeng/scrollpanel';
-import { ScrollTopModule } from 'primeng/scrolltop';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { SidebarModule } from 'primeng/sidebar';
-import { SkeletonModule } from 'primeng/skeleton';
-import { SlideMenuModule } from 'primeng/slidemenu';
-import { SliderModule } from 'primeng/slider';
-import { SpeedDialModule } from 'primeng/speeddial';
-import { SpinnerModule } from 'primeng/spinner';
-import { SplitButtonModule } from 'primeng/splitbutton';
-import { SplitterModule } from 'primeng/splitter';
-import { StepsModule } from 'primeng/steps';
-import { TabMenuModule } from 'primeng/tabmenu';
-import { TableModule } from 'primeng/table';
-import { TabViewModule } from 'primeng/tabview';
-import { TagModule } from 'primeng/tag';
-import { TerminalModule } from 'primeng/terminal';
-import { TieredMenuModule } from 'primeng/tieredmenu';
-import { TimelineModule } from 'primeng/timeline';
-import { ToastModule } from 'primeng/toast';
-import { ToggleButtonModule } from 'primeng/togglebutton';
-import { ToolbarModule } from 'primeng/toolbar';
-import { TooltipModule } from 'primeng/tooltip';
-import { TriStateCheckboxModule } from 'primeng/tristatecheckbox';
-import { TreeModule } from 'primeng/tree';
-import { TreeSelectModule } from 'primeng/treeselect';
-import { TreeTableModule } from 'primeng/treetable';
-import { AnimateModule } from 'primeng/animate';
-import { CardModule } from 'primeng/card';
-import { BlockUIModule } from 'primeng/blockui';
-import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { AuthService } from 'src/services/auth.service';
+import { ApiServices } from 'src/services/api-services.service';
 import { HttpClientModule } from '@angular/common/http';
+import {MenubarModule} from 'primeng/menubar';
+import { HomeComponent } from './home/home.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { JwtModule } from '@auth0/angular-jwt';
+import { CoreModule } from './core/core.module';
+import { BeneficiarioComponent } from './beneficiario/beneficiario.component';
+import { TableModule } from 'primeng/table';
+import { CardModule } from 'primeng/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
+import { DividerModule } from 'primeng/divider';
+import { DialogModule } from 'primeng/dialog';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { ListarComponent } from './plano/listar.component';
+import { InputMaskModule } from 'primeng/inputmask';
+import { DropdownModule } from 'primeng/dropdown';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    HomeComponent,
+    BeneficiarioComponent,
+    ListarComponent,
   ],
   imports: [
-    AvatarModule,
     BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
-    AccordionModule,
-    AutoCompleteModule,
-    BadgeModule,
-    BreadcrumbModule,
-    BlockUIModule,
-    ButtonModule,
-    CalendarModule,
-    CarouselModule,
-    CascadeSelectModule,
-    ChartModule,
-    CheckboxModule,
-    ChipsModule,
-    ChipModule,
-    ColorPickerModule,
-    ConfirmDialogModule,
-    ContextMenuModule,
-    VirtualScrollerModule,
-    DataViewModule,
-    DialogModule,
-    DividerModule,
-    DockModule,
-    DragDropModule,
-    DropdownModule,
-    DynamicDialogModule,
-    EditorModule,
-    FieldsetModule,
-    FileUploadModule,
-    GalleriaModule,
-    InplaceModule,
-    InputMaskModule,
-    InputSwitchModule,
-    InputTextModule,
-    InputTextareaModule,
-    InputNumberModule,
-    ImageModule,
-    KnobModule,
-    ListboxModule,
-    MegaMenuModule,
-    MenuModule,
-    MenubarModule,
-    MessageModule,
-    MessagesModule,
-    MultiSelectModule,
-    OrganizationChartModule,
-    OrderListModule,
-    OverlayPanelModule,
-    PaginatorModule,
-    PanelModule,
-    PanelMenuModule,
-    PasswordModule,
-    PickListModule,
-    ProgressSpinnerModule,
-    ProgressBarModule,
-    RadioButtonModule,
-    RatingModule,
-    SelectButtonModule,
-    SidebarModule,
-    ScrollerModule,
-    ScrollPanelModule,
-    ScrollTopModule,
-    SkeletonModule,
-    SlideMenuModule,
-    SliderModule,
-    SpeedDialModule,
-    SpinnerModule,
-    SplitterModule,
-    SplitButtonModule,
-    StepsModule,
-    TableModule,
-    TabMenuModule,
-    TabViewModule,
-    TagModule,
-    TerminalModule,
-    TieredMenuModule,
-    TimelineModule,
-    ToastModule,
-    ToggleButtonModule,
-    ToolbarModule,
-    TooltipModule,
-    TriStateCheckboxModule,
-    TreeModule,
-    TreeSelectModule,
-    TreeTableModule,
-    AnimateModule,
-    CardModule,
     AppRoutingModule,
-    UsuarioModule
+    UsuarioModule,
+    HttpClientModule,
+    MenubarModule,
+    InputTextModule,
+    ButtonModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('token');
+        }
+      }
+    }),
+    CoreModule,
+    TableModule,
+    CardModule,
+    FormsModule,
+    ReactiveFormsModule,
+    PasswordModule,
+    DividerModule,
+    DialogModule,
+    InputNumberModule,
+    InputMaskModule,
+    DropdownModule,
+    CarouselModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    ApiServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

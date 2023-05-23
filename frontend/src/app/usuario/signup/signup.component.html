@@ -1,0 +1,41 @@
+<div class="container">
+  <p-card>
+    <div class="content">
+      <div class="title">
+        <h1>Crie sua conta</h1>
+      </div>
+      <form (ngSubmit)="signup()" [formGroup]="form" autocomplete="off">
+
+        <input type="text" pInputText placeholder="Name" formControlName="name" [style]="{'width':'100%', 'margin': '10px auto'}">
+        <input type="text" pInputText placeholder="Username" formControlName="username" [style]="{'width':'100%', 'margin': '10px auto'}">
+        <p-password formControlName="password" [toggleMask]="true" placeholder="Password" [style]="{'width':'100%', 'margin': '10px auto'}" [inputStyle]="{'width':'100%'}">
+          <ng-template pTemplate="header">
+            <h6>Digite sua senha</h6>
+          </ng-template>
+          <ng-template pTemplate="footer">
+            <p-divider></p-divider>
+            <p>Sugestão</p>
+            <ul>
+              <li>Pelo menos uma letra minuscula</li>
+              <li>Pelo menos uma letra maiúscula</li>
+              <li>Pelo menos um número</li>
+              <li>Ao menos 8 caracteres</li>
+            </ul>
+          </ng-template>
+        </p-password>
+
+
+        <div class="signup">
+          <span>Já possui uma conta? </span>
+          <a [routerLink]="['/']">Entre agora!</a>
+        </div>
+
+
+
+        <div class="footer">
+          <button pButton pRipple type="submit" label="Criar conta" class="p-button-success"></button>
+        </div>
+      </form>
+    </div>
+  </p-card>
+</div>

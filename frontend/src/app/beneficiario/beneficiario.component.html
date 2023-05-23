@@ -1,1 +1,85 @@
-<p>beneficiario works!</p>
+<button pButton type="button" class="p-button-success" (click)="displayCriar = true; form.reset()" [style]="{'margin': '20px'}">Criar beneficiario</button>
+<p-table [value]="beneficiarios">
+  <ng-template pTemplate="header" >
+      <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Email</th>
+          <th>Idade</th>
+          <th>Plano</th>
+          <th>Ações</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-beneficiario >
+      <tr>
+          <td>{{beneficiario.id}}</td>
+          <td>{{beneficiario.nome}}</td>
+          <td>{{formatCPF(beneficiario.cpf)}}</td>
+          <td>{{beneficiario.email}}</td>
+          <td>{{beneficiario.idade}}</td>
+          <td>{{beneficiario.plano.nome}}</td>
+          <td>
+            <button pButton type="button" class="p-button-default" icon="pi pi-eye" [style]="{'margin': '0 5px'}" (click)="visualizarBeneficiario(beneficiario)"></button>
+            <button pButton type="button" class="p-button-secondary" icon="pi pi-pencil" [style]="{'margin': '0 5px'}" (click)="editarBeneficiario(beneficiario)"></button>
+            <button pButton type="button" class="p-button-danger" icon="pi pi-trash" [style]="{'margin': '0 5px'}" (click)="excluirBeneficiario(beneficiario.id)"></button>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="displayVisualizar" [modal]="true">
+  <ng-template pTemplate="header">
+    <h1 class="title">
+      {{beneficiario.nome}}
+    </h1>
+  </ng-template>
+  <p class="valor">
+    CPF do beneficiario: {{beneficiario.cpf}}
+  </p>
+  <p class="valor">
+    Email do beneficiario: {{beneficiario.email}}
+  </p>
+  <p class="valor">
+    Idade do beneficiario: {{beneficiario.idade}}
+  </p>
+  <p class="valor">
+    Plano do beneficiario: {{beneficiario.plano?.nome}}
+  </p>
+</p-dialog>
+
+<p-dialog [(visible)]="displayCriar" [modal]="true">
+  <ng-template pTemplate="header">
+    <h1 class="title">
+      Criar beneficiario
+    </h1>
+  </ng-template>
+  <form (ngSubmit)="criarBeneficiario()" [formGroup]="form" autocomplete="off">
+    <div class="container-criar">
+      <input type="text" pInputText placeholder="Nome" formControlName="nome" [style]="{'width': '100%', 'margin': '10px 0'}">
+      <input type="email" pInputText placeholder="Email" formControlName="email" [style]="{'width': '100%', 'margin': '10px 0'}">
+      <p-inputMask formControlName="cpf" mask="999.999.999-99" placeholder="000.000.000-00"></p-inputMask>
+      <p-inputNumber formControlName="idade" placeholder="Idade"></p-inputNumber>
+      <p-dropdown [options]="planos" formControlName="plano_id" optionLabel="nome" optionValue="id" placeholder="Selecione um plano" [style]="{'width': '100%', 'margin': '10px 0'}"></p-dropdown>
+      <button pButton pRipple type="submit" label="Criar beneficiario" class="p-button-success"></button>
+    </div>
+  </form>
+</p-dialog>
+
+<p-dialog [(visible)]="displayEditar" [modal]="true">
+  <ng-template pTemplate="header">
+    <h1 class="title">
+      Editar beneficiario
+    </h1>
+  </ng-template>
+  <form (ngSubmit)="submitEditarBeneficiario()" [formGroup]="form" autocomplete="off">
+    <div class="container-criar">
+      <input type="text" pInputText placeholder="Nome" formControlName="nome" [style]="{'width': '100%', 'margin': '10px 0'}">
+      <input type="email" pInputText placeholder="Email" formControlName="email" [style]="{'width': '100%', 'margin': '10px 0'}">
+      <p-inputMask formControlName="cpf" mask="999.999.999-99" placeholder="000.000.000-00"></p-inputMask>
+      <p-inputNumber formControlName="idade" placeholder="Idade"></p-inputNumber>
+      <p-dropdown [options]="planos" formControlName="plano_id" optionLabel="nome" optionValue="id" placeholder="Selecione um plano" [style]="{'width': '100%', 'margin': '10px 0'}"></p-dropdown>
+      <button pButton pRipple type="submit" label="Editar beneficiario" class="p-button-success"></button>
+    </div>
+  </form>
+</p-dialog>

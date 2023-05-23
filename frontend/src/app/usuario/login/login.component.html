@@ -1,0 +1,23 @@
+<div class="container">
+  <p-card>
+    <div class="content">
+      <div class="title">
+        <h1>Acesse o sistema</h1>
+      </div>
+      <form (ngSubmit)="submitForm()" [formGroup]="form" autocomplete="off">
+        <input type="text" pInputText placeholder="Username" formControlName="username" [style]="{'width':'100%', 'margin': '10px auto'}">
+        <p-password formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="Password" [style]="{'width':'100%', 'margin': '10px auto'}" [inputStyle]="{'width':'100%'}">
+        </p-password>
+
+        <div class="signup">
+          <span>Você não tem uma conta? </span>
+          <a [routerLink]="['/sign-up']">Crie agora!</a>
+        </div>
+
+        <div class="footer">
+          <button pButton pRipple type="submit" label="Login" class="p-button-success"></button>
+        </div>
+      </form>
+    </div>
+  </p-card>
+</div>
