@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -8,7 +9,6 @@ import { PasswordModule } from 'primeng/password';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { UsuarioRoutingModule } from './usuario-routing.module';
-import { AuthService } from 'src/services/auth.service';
 
 
 @NgModule({
@@ -25,6 +25,7 @@ import { AuthService } from 'src/services/auth.service';
     PasswordModule,
     DividerModule,
     ButtonModule,
+    CommonModule,
   ],
   exports: [
     UsuarioRoutingModule,

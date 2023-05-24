@@ -14,6 +14,7 @@
           <a [routerLink]="['/sign-up']">Crie agora!</a>
         </div>
 
+        <div *ngIf="isInvalid" class="error">Usuário ou senha incorretos</div>
         <div class="footer">
           <button pButton pRipple type="submit" label="Login" class="p-button-success"></button>
         </div>

@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     username: new FormControl(null, Validators.required),
     password: new FormControl(null, Validators.required)
   })
+  isInvalid: boolean = false;
 
   ngOnInit(): void {
   }
@@ -31,6 +32,11 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.get('username')?.value!, this.form.get('password')?.value!).subscribe(
       response => {
         this.router.navigate(['/home'])
+      },
+      error => {
+        this.form.controls['username'].setErrors({ 'incorrect': true })
+        this.form.controls['password'].setErrors({ 'incorrect': true })
+        this.isInvalid = true;
       }
     )
   }
